@@ -1,0 +1,50 @@
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+$slide-x-sides: (
+left: -100%,
+right: 100%
+);
+
+@each $side,$value in $slide-x-sides {
+  @keyframes slideIn-#{$side} {
+    from {
+      transform: translateX($value);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideOut-#{$side} {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX($value);
+    }
+  }
+  .slide-in-#{$side} {
+    animation: slideIn-#{$side} 0.5s;
+  }
+  .slide-out-#{$side} {
+    animation: slideOut-#{$side} 0.5s;
+  }
+}
+
+.fade-in {
+  animation: fadein 0.5s;
+}
+.fade-out {
+  animation: fadeout 0.5s;
+}
+
+

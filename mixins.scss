@@ -1,0 +1,57 @@
+
+@mixin media-query($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1600px;
+
+$screen-sizes :(
+  xs: $screen-xs-min,
+  sm: $screen-sm-min,
+  md: $screen-md-min,
+  lg: $screen-lg-min,
+  xl: $screen-xl-min
+);
+
+@mixin for-screen($size) {
+  @media (min-width: $screen-sizes[$size]) {
+    @content;
+  }
+}
+  // Media Queries
+// -------------------------
+@mixin for-screen-xs {
+  @media (min-width: $screen-xs-min) {
+    @content;
+  }
+}
+
+@mixin for-screen-sm {
+  @media (min-width: $screen-sm-min) {
+    @content;
+  }
+}
+
+@mixin for-screen-md {
+  @media (min-width: $screen-md-min) {
+    @content;
+  }
+}
+
+@mixin for-screen-lg {
+  @media (min-width: $screen-lg-min) {
+    @content;
+  }
+}
+
+@mixin for-screen-xl {
+  @media (min-width: $screen-xl-min) {
+    @content;
+  }
+}

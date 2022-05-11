@@ -1,0 +1,529 @@
+@use "mixins";
+@use "base";
+
+
+.flex{
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.flex-col{
+  display:flex;
+  flex-direction: column;
+}
+
+.w-10ch{
+  max-width: 10ch;
+}
+.md-w-10ch {
+  @include mixins.for-screen-md{
+    max-width: 10ch;
+  }
+}
+.grid{
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-gap: 1rem;
+}
+.grid-row{
+  grid-auto-flow: row;
+}
+.md-grid-col{
+  @include mixins.for-screen-md{
+    grid-auto-flow: column;
+  }
+}
+
+
+
+.w-40px{
+  width: 40px;
+}
+
+
+.md-grid{
+  @include mixins.for-screen-md{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-gap: 1rem;
+  }
+}
+
+.md-flex{
+  @include mixins.for-screen-md{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.container{
+  max-width: 100%;
+  margin: 0 auto;
+  @include mixins.for-screen-md{
+    max-width: 60em;
+  }
+  @include mixins.for-screen-lg{
+    max-width: 70em;
+    width: 95%;
+  }
+  @include mixins.for-screen-xl{
+    max-width: 140rem;
+  }
+}
+
+
+.max-w-92 {
+  max-width: 92rem;
+}
+.relative{
+  position: relative;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.hidden{
+  display: none;
+  &.show{
+    display: initial;
+  }
+}
+
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+
+
+$space-amounts : (
+        small: base.$spacing-small,
+        medium: base.$spacing-medium,
+        large: base.$spacing-large,
+        huge: base.$spacing-huge,
+        auto: auto,
+        0: 0,
+        1: 1rem,
+        "1-5": 1.5rem,
+        2: 2rem,
+        "2-5": 2.5rem,
+        3: 3rem,
+        4: 4rem,
+        5: 5rem,
+        6: 6rem,
+        7: 7rem,
+        10: 10rem,
+        20: 20rem,
+        30: 30rem,
+        40: 40rem,
+        50: 50rem,
+        55: 55rem,
+        60: 60rem,
+
+        68: 68rem,
+        80: 80rem,
+        full: 100%,
+        ch: 1ch,
+        max-content: max-content,
+        min-content: min-content,
+        screen-md: mixins.$screen-md-min,
+        screen-lg: mixins.$screen-lg-min,
+        screen-xl: mixins.$screen-xl-min,
+);
+
+$justify-options: (start, end, center, space-between, space-around, space-evenly);
+$display-options: (flex, inline-flex, block, inline-block,inline, none);
+
+$text-align-options: (left, right, start,end,center, justify);
+
+$overflow-options: (visible, hidden, scroll, auto);
+
+$border-radios:(
+rounded: base.$border-radius,
+rounded-small: 2px,
+rounded-medium: 4px,
+rounded-large: 10px,
+        rounded-full: 50%,
+);
+$border-widths:(0,1,2,4,8,16,32,64,128,256);
+$font-weight-options: (100, 200, 300, 400, 500, 600, 700, 800, 900, normal, bold, lighter, bolder);
+
+$grid-sizes: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+
+$object-fit-options: (cover, contain, fill, none, scale-down);
+
+@each $option in $object-fit-options{
+  .object-#{$option}{
+    object-fit: $option;
+  }
+}
+
+@each $option in $overflow-options{
+  .overflow-#{$option}{
+    overflow: $option;
+  }
+}
+
+@each $col_count in $grid-sizes {
+  .grid-col-#{$col_count}  {
+    grid-template-columns: repeat(#{$col_count}, 1fr);
+  }
+  .grid-row-#{$col_count} {
+    grid-template-rows: repeat(#{$col_count}, 1fr);
+  }
+}
+
+@each $border,$value in $border-radios {
+  .#{$border} {
+    border-radius: $value;
+  }
+}
+
+@each $value in $border-widths{
+  .border-#{$value}{
+    border-width: #{$value}px;
+    border-style: solid;
+  }
+}
+
+@each $size, $value in $space-amounts {
+  .mx-#{$size} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$size} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  .m-#{$size} {
+    margin: $value;
+  }
+  .mt-#{$size} {
+    margin-top: $value;
+  }
+  .mr-#{$size} {
+    margin-right: $value;
+  }
+  .mb-#{$size} {
+    margin-bottom: $value;
+  }
+  .ml-#{$size} {
+    margin-left: $value;
+  }
+  .px-#{$size} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$size} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  .p-#{$size} {
+    padding: $value;
+  }
+  .pt-#{$size} {
+    padding-top: $value;
+  }
+  .pr-#{$size} {
+    padding-right: $value;
+  }
+  .pb-#{$size} {
+    padding-bottom: $value;
+  }
+  .pl-#{$size} {
+    padding-left: $value;
+  }
+  .gap-#{$size} {
+    grid-column-gap: $value;
+    grid-row-gap: $value;
+  }
+  .gap-x-#{$size} {
+    grid-column-gap: $value;
+  }
+  .gap-y-#{$size} {
+    grid-row-gap: $value;
+  }
+
+  .w-#{$size} {
+    width: $value;
+  }
+  .h-#{$size} {
+    height: $value;
+  }
+  .top-#{$size} {
+    top: $value;
+  }
+  .right-#{$size} {
+    right: $value;
+  }
+  .bottom-#{$size} {
+    bottom: $value;
+  }
+  .left-#{$size} {
+    left: $value;
+  }
+
+  //max-width
+  .max-w-#{$size} {
+    max-width: $value;
+  }
+  .max-h-#{$size} {
+    max-height: $value;
+  }
+  .min-w-#{$size} {
+    min-width: $value;
+  }
+  .min-h-#{$size} {
+    min-height: $value;
+  }
+
+}
+
+@each $side in $justify-options{
+  .justify-#{$side}{
+    justify-content: $side;
+  }
+}
+@each $side in $justify-options{
+  .align-#{$side}{
+    align-content: $side;
+  }
+}
+
+@each $display in $display-options{
+  .display-#{$display}{
+    display: $display;
+  }
+}
+
+@each $align in $text-align-options{
+  .text-#{$align}{
+    text-align: $align;
+  }
+}
+
+@each $weight in $font-weight-options{
+  .font-#{$weight}{
+    font-weight: $weight;
+  }
+}
+
+@each $color,$value in base.$colors{
+  .text-#{$color}{
+    color: $value;
+  }
+  .bg-#{$color}{
+    background-color: $value;
+  }
+  .border-#{$color}{
+    border-color: $value;
+  }
+}
+
+@each $size, $value in base.$font-sizes{
+  .text-#{$size}{
+    font-size: $value;
+  }
+}
+
+//for each screen size generate utility classes
+@each $screen, $v in mixins.$screen-sizes{
+  @each $size, $value in $space-amounts {
+    .#{$screen}-mx-#{$size} {
+      @include mixins.media-query($v){
+        margin-left: $value;
+        margin-right: $value;
+      }
+    }
+    .#{$screen}-my-#{$size} {
+      @include mixins.media-query($v) {
+        margin-top: $value;
+        margin-bottom: $value;
+      }
+    }
+    .#{$screen}-m-#{$size} {
+      @include mixins.media-query($v) {
+        margin: $value;
+      }
+    }
+    .#{$screen}-mt-#{$size} {
+      @include mixins.media-query($v) {
+        margin-top: $value;
+      }
+    }
+    .#{$screen}-mr-#{$size} {
+      @include mixins.media-query($v) {
+        margin-right: $value;
+      }
+    }
+    .#{$screen}-mb-#{$size} {
+      @include mixins.media-query($v) {
+        margin-bottom: $value;
+      }
+    }
+    .#{$screen}-ml-#{$size} {
+      @include mixins.media-query($v) {
+        margin-left: $value;
+      }
+    }
+    .#{$screen}-px-#{$size} {
+      @include mixins.media-query($v) {
+        padding-left: $value;
+        padding-right: $value;
+      }
+    }
+    .#{$screen}-py-#{$size} {
+      @include mixins.media-query($v) {
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+    }
+    .#{$screen}-p-#{$size} {
+      @include mixins.media-query($v) {
+        padding: $value;
+      }
+    }
+    .#{$screen}-pt-#{$size} {
+      @include mixins.media-query($v) {
+        padding-top: $value;
+      }
+    }
+    .#{$screen}-pr-#{$size} {
+      @include mixins.media-query($v) {
+        padding-right: $value;
+      }
+    }
+    .#{$screen}-pb-#{$size} {
+      @include mixins.media-query($v) {
+        padding-bottom: $value;
+      }
+    }
+    .#{$screen}-pl-#{$size} {
+      @include mixins.media-query($v) {
+        padding-left: $value;
+      }
+    }
+    .#{$screen}-gap-#{$size} {
+      @include mixins.media-query($v) {
+        grid-column-gap: $value;
+        grid-row-gap: $value;
+      }
+    }
+    .#{$screen}-gap-x-#{$size} {
+      @include mixins.media-query($v) {
+        grid-column-gap: $value;
+      }
+    }
+    .#{$screen}-gap-y-#{$size} {
+      @include mixins.media-query($v) {
+        grid-row-gap: $value;
+      }
+    }
+    .#{$screen}-w-#{$size} {
+      @include mixins.media-query($v) {
+        width: $value;
+      }
+    }
+    .#{$screen}-max-w-#{$size} {
+      @include mixins.media-query($v) {
+        max-width: $value;
+      }
+    }
+    .#{$screen}-max-h-#{$size} {
+      @include mixins.media-query($v) {
+        max-height: $value;
+      }
+    }
+    .#{$screen}-min-w-#{$size} {
+      @include mixins.media-query($v) {
+        min-width: $value;
+      }
+    }
+
+    .#{$screen}-min-h-#{$size} {
+      @include mixins.media-query($v) {
+        min-height: $value;
+      }
+    }
+
+
+  }
+  @each $side in $justify-options{
+    .#{$screen}-justify-#{$side}{
+      @include mixins.media-query($v){
+        justify-content: $side;
+      }
+    }
+  }
+  @each $display in $display-options{
+    .#{$screen}-display-#{$display}{
+      @include mixins.media-query($v){
+        display: $display;
+      }
+    }
+  }
+  @each $col_count in $grid-sizes {
+    .#{$screen}-grid-col-#{$col_count}  {
+      @include mixins.media-query($v){
+        grid-template-columns: repeat($col_count, 1fr);
+      }
+    }
+    .#{$screen}-grid-row-#{$col_count} {
+      @include mixins.media-query($v){
+        grid-template-rows: repeat($col_count, 1fr);
+      }
+    }
+  }
+  @each $align in $text-align-options{
+    .#{$screen}-text-#{$align}{
+      @include mixins.media-query($v){
+      text-align: $align;
+      }
+    }
+  }
+  @each $option in $object-fit-options{
+    .#{$screen}-object-#{$option}{
+      @include mixins.media-query($v){
+        object-fit: $option;
+      }
+    }
+  }
+  @each $value in $border-widths{
+    .#{$screen}-border-#{$value}{
+      @include mixins.media-query($v){
+        border-width: #{$value}px;
+        border-style: solid;
+      }
+    }
+  }
+  @each $color,$value in base.$colors{
+    @include mixins.media-query($v){
+      .#{$screen}-text-#{$color}{
+        color: $value;
+      }
+      .#{$screen}-bg-#{$color}{
+        background-color: $value;
+      }
+      .#{$screen}-border-#{$color}{
+        border-color: $value;
+      }
+    }
+  }
+  @each $size, $value in base.$font-sizes{
+    .#{$screen}-text-#{$size}{
+      @include mixins.media-query($v){
+        font-size: $value;
+      }
+    }
+  }
+}
+
+
+.md-grid-col-6-4{
+  @include mixins.for-screen-md{
+    grid-template-columns: 68.5rem auto;
+  }
+}

@@ -1,0 +1,59 @@
+@use "mixins";
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;400;500;600;700;800;900&display=swap');
+$font-family:'Heebo', sans-serif;
+$font-family-sans-serif:'Heebo', sans-serif;
+$font-weight-base:300;
+
+$primary-color:#D625A1;
+$primary-color-dark: rgb(176, 28, 132);
+$primary-color-darker: #B00F8A;
+$bg-color: #000a21;
+$bg-color-light:#01092b;
+$text-color: #fff;
+$accent-color:#3CABE2;
+$accent-color-dark: rgb(2, 62, 125);
+$semi-transparent-color: rgba(255,255,255,0.05);
+
+$base-font-size: 10px;
+$large-font-size: 6rem;
+$medium-font-size: 2.4rem;
+$medium-heading-font-size: 4rem;
+$small-font-size: 1.8rem;
+$huge-font-size: 9rem;
+$huge-font-size-mobile: 5rem;
+$border-radius: 4px;
+$colors : (
+        primary: $primary-color,
+        primary-dark: $primary-color-dark,
+        bg: $bg-color,
+        bg-light: $bg-color-light,
+        text: $text-color,
+        accent: $accent-color,
+        accent-dark: $accent-color-dark,
+        white: #ffffff,
+        semi-transparent: $semi-transparent-color,
+        transparent: transparent,
+);
+
+$font-sizes : (
+        xxs: $base-font-size,
+        xs: 1.4rem,
+        sm: $small-font-size,
+        md: $medium-font-size,
+        "1-6": 1.6rem,
+        2:2rem,
+        l: $large-font-size,
+        xl: $huge-font-size,
+        xl2: $huge-font-size * 1.5,
+        xl3: $huge-font-size * 2,
+        xl4: $huge-font-size * 2.5,
+        h-md:$medium-heading-font-size,
+);
+
+
+
+$spacing-small: 0.5rem;
+$spacing-medium: 1.5rem;
+$spacing-large: 3rem;
+$spacing-huge: 5rem;
+
