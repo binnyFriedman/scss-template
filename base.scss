@@ -22,6 +22,13 @@ $small-font-size: 1.8rem;
 $huge-font-size: 9rem;
 $huge-font-size-mobile: 5rem;
 $border-radius: 4px;
+
+$base-gradient: linear-gradient(90deg, $primary-color-dark 0%, $primary-color 89.71%);
+$box-shadow: 1px 21px 98px -10px $accent-color;
+$box-shadow-hover: 1px 8px 35px -10px rgba(12, 68, 213, 0.4);
+
+
+
 $colors : (
         primary: $primary-color,
         primary-dark: $primary-color-dark,
@@ -48,6 +55,7 @@ $font-sizes : (
         xl3: $huge-font-size * 2,
         xl4: $huge-font-size * 2.5,
         h-md:$medium-heading-font-size,
+        larger: 120%,
 );
 
 
@@ -56,4 +64,26 @@ $spacing-small: 0.5rem;
 $spacing-medium: 1.5rem;
 $spacing-large: 3rem;
 $spacing-huge: 5rem;
+
+
+$variables : (
+        font-family: $font-family,
+        font-weight-base: $font-weight-base,
+        primary-color: $primary-color,
+        primary-color-dark: $primary-color-dark,
+        bg-color: $bg-color,
+        text-color: $text-color,
+        accent-color: $accent-color,
+        grey-color: $grey-color,
+        base-font-size: $base-font-size,
+        large-font-size: $large-font-size,
+        medium-font-size: $medium-font-size,
+        medium-heading-font-size: $medium-heading-font-size,
+        small-font-size: $small-font-size,
+        huge-font-size: $huge-font-size,
+        huge-font-size-mobile: $huge-font-size-mobile,
+        border-radius: $border-radius,
+        base-gradient: $base-gradient,
+        box-shadow: $box-shadow,
+)
 
