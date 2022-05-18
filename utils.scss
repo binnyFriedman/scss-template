@@ -35,7 +35,24 @@
   }
 }
 
-
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  background-color:rgba(0,0,0,0.5);
+  display:none;
+  &.open{
+    display:block;
+  }
+  &.open.md-overlay-hidden{
+    @include mixins.for-screen-md{
+      display:none;
+    }
+  }
+}
 
 .w-40px{
   width: 40px;
@@ -97,6 +114,9 @@
   border-width: 1px;
   border-style: solid;
 }
+.b-collapse{
+  border-collapse: collapse;
+}
 
 
 $space-amounts : (
@@ -122,7 +142,6 @@ $space-amounts : (
         50: 50rem,
         55: 55rem,
         60: 60rem,
-
         68: 68rem,
         80: 80rem,
         full: 100%,
@@ -148,7 +167,7 @@ rounded-medium: 4px,
 rounded-large: 10px,
         rounded-full: 50%,
 );
-$border-widths:(0,1,2,4,8,16,32,64,128,256);
+$border-widths:(0,1,2,4,8,16);
 $font-weight-options: (100, 200, 300, 400, 500, 600, 700, 800, 900, normal, bold, lighter, bolder);
 
 $grid-sizes: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
@@ -186,6 +205,33 @@ $object-fit-options: (cover, contain, fill, none, scale-down);
   .border-#{$value}{
     border-width: #{$value}px;
     border-style: solid;
+  }
+  .border-x-#{$value}{
+    border-left-width: #{$value}px;
+    border-right-width: #{$value}px;
+    border-style: solid;
+  }
+  .border-y-#{$value}{
+    border-top-width: #{$value}px;
+    border-bottom-width: #{$value}px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+  }
+  .border-t-#{$value}{
+    border-top-width: #{$value}px;
+    border-top-style: solid;
+  }
+  .border-b-#{$value}{
+    border-bottom-width: #{$value}px;
+    border-bottom-style: solid;
+  }
+  .border-l-#{$value}{
+    border-left-width: #{$value}px;
+    border-left-style: solid;
+  }
+  .border-r-#{$value}{
+    border-right-width: #{$value}px;
+    border-right-style: solid;
   }
 }
 

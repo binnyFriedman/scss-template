@@ -1,0 +1,73 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideIn-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideOut-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.slide-in-left {
+  animation: slideIn-left 0.5s;
+}
+
+.slide-out-left {
+  animation: slideOut-left 0.5s;
+}
+
+@keyframes slideIn-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideOut-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.slide-in-right {
+  animation: slideIn-right 0.5s;
+}
+
+.slide-out-right {
+  animation: slideOut-right 0.5s;
+}
+
+.fade-in {
+  animation: fadein 0.5s;
+}
+
+.fade-out {
+  animation: fadeout 0.5s;
+}
+
+/*# sourceMappingURL=animations.css.map */

@@ -1,45 +1,30 @@
-@use "mixins";
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;400;500;600;700;800;900&display=swap');
 $font-family:'Heebo', sans-serif;
 $font-family-sans-serif:'Heebo', sans-serif;
 $font-weight-base:300;
-
-$primary-color:#D625A1;
-$primary-color-dark: rgb(176, 28, 132);
-$primary-color-darker: #B00F8A;
-$bg-color: #000a21;
-$bg-color-light:#01092b;
-$text-color: #fff;
-$accent-color:#3CABE2;
-$accent-color-dark: rgb(2, 62, 125);
-$semi-transparent-color: rgba(255,255,255,0.05);
 
 $base-font-size: 10px;
 $large-font-size: 6rem;
 $medium-font-size: 2.4rem;
 $medium-heading-font-size: 4rem;
-$small-font-size: 1.8rem;
+$small-font-size: 1.6rem;
 $huge-font-size: 9rem;
 $huge-font-size-mobile: 5rem;
 $border-radius: 4px;
 
-$base-gradient: linear-gradient(90deg, $primary-color-dark 0%, $primary-color 89.71%);
-$box-shadow: 1px 21px 98px -10px $accent-color;
-$box-shadow-hover: 1px 8px 35px -10px rgba(12, 68, 213, 0.4);
 
 
 
 $colors : (
-        primary: $primary-color,
-        primary-dark: $primary-color-dark,
-        bg: $bg-color,
-        bg-light: $bg-color-light,
-        text: $text-color,
-        accent: $accent-color,
-        accent-dark: $accent-color-dark,
-        white: #ffffff,
-        semi-transparent: $semi-transparent-color,
-        transparent: transparent,
+        black: rgb(0, 0, 0),
+        orange: rgb(255, 117, 0),
+        white:rgb(255, 255, 255),
+        light-grey:rgb(179, 179, 179),
+        bg-gray:#ecece7,
+        dark-grey:rgb(77, 77, 77),
+        text-grey:rgba(0, 0, 0, 0.6),
+        light-brown:rgb(134, 109, 75),
+        failRed: #e03c31,
+        successGreen: #00e676,
 );
 
 $font-sizes : (
@@ -55,10 +40,16 @@ $font-sizes : (
         xl3: $huge-font-size * 2,
         xl4: $huge-font-size * 2.5,
         h-md:$medium-heading-font-size,
-        larger: 120%,
+        large: large,
+        larger: larger,
+        medium:medium,
+        x-large: x-large,
+        xx-large: xx-large,
+        x-small: x-small,
+        xx-small: xx-small,
+        small: small,
+        smaller: smaller,
 );
-
-
 
 $spacing-small: 0.5rem;
 $spacing-medium: 1.5rem;
@@ -69,12 +60,7 @@ $spacing-huge: 5rem;
 $variables : (
         font-family: $font-family,
         font-weight-base: $font-weight-base,
-        primary-color: $primary-color,
-        primary-color-dark: $primary-color-dark,
-        bg-color: $bg-color,
-        text-color: $text-color,
-        accent-color: $accent-color,
-        grey-color: $grey-color,
+        colors: $colors,
         base-font-size: $base-font-size,
         large-font-size: $large-font-size,
         medium-font-size: $medium-font-size,
@@ -83,7 +69,5 @@ $variables : (
         huge-font-size: $huge-font-size,
         huge-font-size-mobile: $huge-font-size-mobile,
         border-radius: $border-radius,
-        base-gradient: $base-gradient,
-        box-shadow: $box-shadow,
 )
 

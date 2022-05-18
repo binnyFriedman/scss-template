@@ -1,0 +1,12 @@
+@import "base";
+@import "normilizer";
+@import "animations";
+@import "icons";
+@import "utils";
+
+:root{
+  font-size: $base-font-size;
+}
+html,body{
+  font-size:$small-font-size;
+}

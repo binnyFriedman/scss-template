@@ -1,0 +1,53 @@
+.icon {
+  position: relative;
+  transform: translate(20%, 65%);
+  width: 25px;
+  height: 20px;
+  display: inline-block;
+}
+.icon.small {
+  width: 17px;
+  height: 15px;
+}
+
+.arrow {
+  position: absolute;
+  width: 90%;
+  height: 15%;
+  background-color: inherit;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10%;
+}
+.arrow::after, .arrow::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  right: -20%;
+  background-color: inherit;
+  border-radius: inherit;
+}
+.arrow::before {
+  top: 130%;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(-45deg);
+}
+.arrow::after {
+  top: -130%;
+  transform: rotate(45deg);
+}
+
+.icon-before {
+  display: flex;
+  align-items: center;
+}
+.icon-before::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-inline-end: 0.8rem;
+}
+
+/*# sourceMappingURL=icons.css.map */
